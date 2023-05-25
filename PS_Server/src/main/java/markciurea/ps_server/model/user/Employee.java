@@ -2,6 +2,7 @@ package markciurea.ps_server.model.user;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import markciurea.ps_server.model.dto.userDto.UserShort;
 import markciurea.ps_server.model.thrashLocation.ThrashLocation;
 
 import java.util.ArrayList;
@@ -22,6 +23,11 @@ public class Employee extends User {
 
     public Employee() {
         super();
+        setRole(Role.EMPLOYEE);
+    }
+
+    public Employee(UserShort userShort) {
+        super(userShort);
         setRole(Role.EMPLOYEE);
     }
 
