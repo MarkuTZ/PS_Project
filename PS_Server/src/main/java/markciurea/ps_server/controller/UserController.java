@@ -31,9 +31,19 @@ public class UserController {
         return service.getAllUsers();
     }
 
+    @GetMapping("/{userId}")
+    public User getUserById(@PathVariable Long userId) {
+        return service.getUserById(userId);
+    }
+
     @DeleteMapping("/{userId}")
     public User deleteUserById(@PathVariable Long userId) {
         return service.deleteUserById(userId);
+    }
+
+    @PatchMapping
+    public User updateUser(@RequestBody UserShort updatedUser) {
+        return service.updateUser(updatedUser);
     }
 
 }

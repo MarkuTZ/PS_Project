@@ -2,7 +2,9 @@ package markciurea.controller.administrator.commands;
 
 import markciurea.controller.administrator.ControllerAdministrator;
 import markciurea.controller.helper.ICommand;
+import markciurea.model.entities.dto.UserShort;
 import markciurea.model.entities.user.User;
+import markciurea.model.server.UserAPI;
 import markciurea.view.ShowError;
 
 public class UpdateUserCommand implements ICommand {
@@ -20,9 +22,7 @@ public class UpdateUserCommand implements ICommand {
         Long id = (Long) controller.getValueAt(row, 0);
         Object valueToUpdate = controller.getValueAt(row, column);
 
-        // TODO
-//        User user = UserRepository.getInstance().getUserById(id);
-        User user = null;
+        User user = UserAPI.getUserById(id);
         if (user == null) {
             ShowError.showError("COULDN'T UPDATE USER WITH ID = " + id);
             return;
@@ -32,8 +32,7 @@ public class UpdateUserCommand implements ICommand {
             case 3 -> user.setPassword((String) valueToUpdate);
             case 4 -> user.setPhoneNr((String) valueToUpdate);
         }
-        // TODO
-//        UserRepository.getInstance().saveUser(user);
+        UserAPI.updateUser(new UserShort(user));
         controller.refreshEmployeeTableModel();
     }
 }

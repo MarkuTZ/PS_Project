@@ -57,4 +57,30 @@ public class UserService {
         repository.delete(user);
         return user;
     }
+
+    public User getUserById(Long userId) {
+        return repository.findById(userId).orElse(null);
+    }
+
+    public User updateUser(UserShort updatedUser) {
+        User user = repository.findById(updatedUser.getId()).orElse(null);
+        if (user == null) {
+            return null;
+        }
+        user.setEmail(updatedUser.getEmail());
+        user.setPassword(updatedUser.getPassword());
+        user.setPhoneNr(updatedUser.getPhoneNr());
+        switch (updatedUser.getRole()) {
+            case ADMINISTRATOR -> {
+                return repository.save((Administrator) user);
+            }
+            case EMPLOYEE -> {
+                return repository.save((Employee) user);
+            }
+            case ACTIVITY_COORDINATOR -> {
+                return repository.save((ActivityCoordinator) user);
+            }
+        }
+        return null;
+    }
 }

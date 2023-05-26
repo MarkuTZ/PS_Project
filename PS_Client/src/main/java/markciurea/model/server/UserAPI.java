@@ -101,4 +101,37 @@ public abstract class UserAPI {
             throw new RuntimeException(e);
         }
     }
+
+    public static User getUserById(Long id) {
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme("http")
+                .host("localhost")
+                .port(8080)
+                .addPathSegment("user")
+                .addPathSegment(String.valueOf(id))
+                .build();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+
+        return executeUserRequest(request);
+    }
+
+    public static User updateUser(UserShort userShort) {
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme("http")
+                .host("localhost")
+                .port(8080)
+                .addPathSegment("user")
+                .build();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .patch(RequestBody.create(JSON, gsonParser.toJson(userShort)))
+                .build();
+
+        return executeUserRequest(request);
+    }
 }

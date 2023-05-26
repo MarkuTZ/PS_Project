@@ -24,7 +24,7 @@ public class DeleteUsersCommand implements ICommand {
         for (int index : indexes) {
             ids.add((Long) controller.getValueAt(index, 0));
         }
-        ids.forEach(id -> UserAPI.deleteUserById(id));
+        ids.forEach(UserAPI::deleteUserById);
         controller.refreshEmployeeTableModel();
     }
 }

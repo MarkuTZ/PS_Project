@@ -4,72 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63c19551-b080-46d0-aeda-a9e712b961b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/activityCoordinator/ControllerActivityCoordinator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/activityCoordinator/commands/CreateThrashLocationCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/activityCoordinator/commands/DeleteThrashLocationsCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/activityCoordinator/commands/GenerateCSVCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/activityCoordinator/commands/GenerateChartsCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/activityCoordinator/commands/GenerateJSONCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/activityCoordinator/commands/GenerateTXTCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/activityCoordinator/commands/GenerateXMLCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/activityCoordinator/commands/UpdateThrashLocationCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/administrator/ControllerAdministrator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/administrator/commands/CreateUserCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/administrator/commands/DeleteUsersCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/administrator/commands/UpdateUserCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/employee/ControllerEmployee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/employee/commands/ShowRouteCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/helper/ControllerRoute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/helper/DrawCharts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/helper/DrawRoute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/helper/ICommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/helper/RouteHelperService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/login/ControllerLogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/login/commands/LoginCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/tableModels/EmployeeTableModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/tableModels/ThrashTableModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/model/entities/dto/UserShort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/model/entities/thrashLocation/ThrashLocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/model/entities/user/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/model/entities/user/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/model/language/LANGUAGES.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/model/language/Language.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/model/language/Observer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/model/server/ThrashLocationAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/model/server/UserAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/view/ActivityCoordinatorGUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/view/ActivityCoordinatorGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/view/AdministratorGUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/view/AdministratorGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/view/EmployeeGUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/view/EmployeeGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/view/LoginGUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/view/LoginGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/markciurea/view/ShowError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/viewLanguage.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/viewLanguage_it_IT.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/viewLanguage_ro_RO.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/config/CustomControllerAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/config/CustomError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/model/dto/thrashLocationDto/ThrashLocationUserShortDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/model/dto/userDto/UserLoginDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/model/dto/userDto/UserShort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/controller/ThrashLocationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/controller/ThrashLocationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/model/user/ActivityCoordinator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/model/user/ActivityCoordinator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/model/user/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/model/user/Administrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/model/user/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/model/user/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/model/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/repository/ThrashLocationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/repository/ThrashLocationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/service/ThrashLocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/service/ThrashLocationService.java" afterDir="false" />
+    <list default="true" id="63c19551-b080-46d0-aeda-a9e712b961b3" name="Changes" comment="Finished Login/ Employee/ and some Administrator">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/markciurea/controller/administrator/commands/DeleteUsersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/administrator/commands/DeleteUsersCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/markciurea/controller/administrator/commands/UpdateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/markciurea/controller/administrator/commands/UpdateUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/markciurea/model/entities/dto/UserShort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/markciurea/model/entities/dto/UserShort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/markciurea/model/server/UserAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/markciurea/model/server/UserAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PS_Server/src/main/java/markciurea/ps_server/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,6 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TODO_SCOPE": "All Places",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "false",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
@@ -149,8 +91,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685031378614</updated>
-      <workItem from="1685031380877" duration="11597000" />
+      <workItem from="1685031380877" duration="11968000" />
+      <workItem from="1685117161077" duration="1529000" />
     </task>
+    <task id="LOCAL-00001" summary="Finished Login/ Employee/ and some Administrator">
+      <created>1685044870285</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685044870285</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,5 +109,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Finished Login/ Employee/ and some Administrator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Login/ Employee/ and some Administrator" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/markciurea/model/server/UserAPI.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
