@@ -2,6 +2,7 @@ package markciurea.ps_server.service;
 
 import lombok.RequiredArgsConstructor;
 import markciurea.ps_server.config.CustomError;
+import markciurea.ps_server.model.dto.thrashLocationDto.ThrashLocationUserShortDTO;
 import markciurea.ps_server.model.thrashLocation.ThrashLocation;
 import markciurea.ps_server.model.user.Employee;
 import markciurea.ps_server.model.user.Role;
@@ -32,4 +33,20 @@ public class ThrashLocationService {
         return thrashLocationRepository.findAllByEmployee((Employee) user);
     }
 
+    public ThrashLocationUserShortDTO saveThrashLocation(ThrashLocationUserShortDTO newThrash) {
+        User user = userRepository.getUserByEmail(newThrash.getEmployee().getEmail());
+        if (user == null || !user.getRole().equals(Role.EMPLOYEE)) {
+            throw new CustomError(HttpStatus.NOT_FOUND, "User not found/ employee.");
+        }
+        ThrashLocation thrashLocation = new ThrashLocation(newThrash);
+        ((Employee) user).addThrashLocation(thrashLocation);
+        userRepository.save(user);
+        return new ThrashLocationUserShortDTO(thrashLocation);
+    }
+
+    public void deleteThrashById(Long thrashId) {
+        ThrashLocation thrashLocation = thrashLocationRepository.getReferenceById(thrashId);
+        thrashLocation.getEmployee().removeThrashLocation(thrashLocation);
+        thrashLocationRepository.deleteById(thrashId);
+    }
 }

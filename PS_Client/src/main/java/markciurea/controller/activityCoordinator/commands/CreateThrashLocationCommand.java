@@ -2,8 +2,11 @@ package markciurea.controller.activityCoordinator.commands;
 
 import markciurea.controller.activityCoordinator.ControllerActivityCoordinator;
 import markciurea.controller.helper.ICommand;
+import markciurea.model.entities.dto.UserShort;
 import markciurea.model.entities.thrashLocation.ThrashLocation;
 import markciurea.model.entities.user.User;
+import markciurea.model.server.ThrashLocationAPI;
+import markciurea.model.server.UserAPI;
 import markciurea.view.ShowError;
 
 import java.util.ArrayList;
@@ -44,9 +47,7 @@ public class CreateThrashLocationCommand implements ICommand {
             return;
         }
 
-        // TODO
-//        Employee user = (Employee) UserRepository.getInstance().getUserByEmail(email);
-        User user = null;
+        User user = UserAPI.getUserByEmail(email);
         if (user == null) {
             ShowError.showError("User with email: " + email + " doesn't exist!");
             return;
@@ -55,10 +56,9 @@ public class CreateThrashLocationCommand implements ICommand {
         newThrashLocation.setX(x);
         newThrashLocation.setY(y);
         newThrashLocation.setAddressName(address);
+        newThrashLocation.setEmployee(new UserShort(user));
 
-        // TODO
-//        user.addThrashLocation(newThrashLocation);
-//        UserRepository.getInstance().saveUser(user);
-        controller.getTableModel().addThrashLocation(newThrashLocation);
+        ThrashLocationAPI.saveThrashLocation(newThrashLocation);
+        controller.refreshThrashTableModel();
     }
 }

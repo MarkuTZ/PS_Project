@@ -79,7 +79,7 @@ public class ControllerAdministrator {
     }
 
     public void refreshEmployeeTableModel() {
-        List<User> userList = UserAPI.getAllUsers();
+        List<User> userList = UserAPI.getAllUsers(null);
         List<Role> showRoles = new ArrayList<>();
         if (getShowAdmins()) {
             showRoles.add(Role.ADMINISTRATOR);

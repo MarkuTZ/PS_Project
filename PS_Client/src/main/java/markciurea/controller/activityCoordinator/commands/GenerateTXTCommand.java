@@ -3,6 +3,7 @@ package markciurea.controller.activityCoordinator.commands;
 import markciurea.controller.activityCoordinator.ControllerActivityCoordinator;
 import markciurea.controller.helper.ICommand;
 import markciurea.model.entities.thrashLocation.ThrashLocation;
+import markciurea.model.server.ThrashLocationAPI;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -21,14 +22,11 @@ public class GenerateTXTCommand implements ICommand {
     public void execute() {
         String textFile = "thrashLocations.txt";
 
-        // TODO
-//        List<ThrashLocation> transportLineList = ThrashLocationRepository.getInstance().getAllThrashLocations();
-        List<ThrashLocation> transportLineList = null;
-
+        List<ThrashLocation> thrashLocationList = ThrashLocationAPI.getAllThrashLocations();
         try {
             FileWriter fw = new FileWriter(textFile);
             BufferedWriter bw = new BufferedWriter(fw);
-            for (ThrashLocation thrashLocation : transportLineList) {
+            for (ThrashLocation thrashLocation : thrashLocationList) {
                 bw.write("ID: " + thrashLocation.getId());
                 bw.write(" ADDRESS_NAME: " + thrashLocation.getAddressName());
                 bw.write(" X: " + thrashLocation.getX());

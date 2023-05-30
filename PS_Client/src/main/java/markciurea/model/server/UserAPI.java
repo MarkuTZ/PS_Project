@@ -4,12 +4,14 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import markciurea.model.entities.dto.UserShort;
+import markciurea.model.entities.user.Role;
 import markciurea.model.entities.user.User;
 import okhttp3.*;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public abstract class UserAPI {
 
@@ -47,12 +49,13 @@ public abstract class UserAPI {
         executeUserRequest(request);
     }
 
-    public static List<User> getAllUsers() {
+    public static List<User> getAllUsers(List<Role> roles) {
         HttpUrl url = new HttpUrl.Builder()
                 .scheme("http")
                 .host("localhost")
                 .port(8080)
                 .addPathSegment("user")
+                .addQueryParameter("roles", roles == null ? null : roles.stream().map(Role::toString).collect(Collectors.joining(",")))
                 .build();
 
         Request request = new Request.Builder()
@@ -130,6 +133,24 @@ public abstract class UserAPI {
         Request request = new Request.Builder()
                 .url(url)
                 .patch(RequestBody.create(JSON, gsonParser.toJson(userShort)))
+                .build();
+
+        return executeUserRequest(request);
+    }
+
+    public static User getUserByEmail(String email) {
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme("http")
+                .host("localhost")
+                .port(8080)
+                .addPathSegment("user")
+                .addPathSegment("email")
+                .addQueryParameter("email", email)
+                .build();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
                 .build();
 
         return executeUserRequest(request);

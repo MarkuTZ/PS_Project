@@ -10,6 +10,8 @@ import markciurea.model.entities.thrashLocation.ThrashLocation;
 import markciurea.model.entities.user.Role;
 import markciurea.model.entities.user.User;
 import markciurea.model.language.Language;
+import markciurea.model.server.ThrashLocationAPI;
+import markciurea.model.server.UserAPI;
 import markciurea.view.ActivityCoordinatorGUI;
 import markciurea.view.ShowError;
 import org.apache.commons.lang3.tuple.Pair;
@@ -43,7 +45,6 @@ public class ControllerActivityCoordinator implements ControllerRoute {
     private final ICommand generateCharts = new GenerateChartsCommand(this);
 
     public ControllerActivityCoordinator(User loggedIn) {
-        // TODO
         this.loggedIn = loggedIn;
         if (loggedIn == null || !loggedIn.getRole().equals(Role.ACTIVITY_COORDINATOR)) {
             throw new RuntimeException(loggedIn.getEmail() + " is not an ACTIVITY COORDINATOR");
@@ -52,8 +53,7 @@ public class ControllerActivityCoordinator implements ControllerRoute {
 
         // Instantiate the comboBoxModel
         DefaultComboBoxModel<String> defaultComboBoxModel = new DefaultComboBoxModel<>();
-        // TODO
-        List<User> employees = null;
+        List<User> employees = UserAPI.getAllUsers(List.of(Role.EMPLOYEE));
         defaultComboBoxModel.addAll(employees.stream().map(User::getEmail).toList());
         defaultComboBoxModel.setSelectedItem(employees.get(0).getEmail());
         gui.getEmployeeComboBox().setModel(defaultComboBoxModel);
@@ -99,9 +99,7 @@ public class ControllerActivityCoordinator implements ControllerRoute {
     }
 
     public void refreshThrashTableModel() {
-        // TODO
-//        List<ThrashLocation> thrashLocationList = ThrashLocationRepository.getInstance().getAllThrashLocations();
-        List<ThrashLocation> thrashLocationList = null;
+        List<ThrashLocation> thrashLocationList = ThrashLocationAPI.getAllThrashLocations();
         ThrashTableModel thrashTableModel = new ThrashTableModel(thrashLocationList, true);
         thrashTableModel.addTableModelListener(e -> {
             row = e.getFirstRow();
@@ -161,9 +159,7 @@ public class ControllerActivityCoordinator implements ControllerRoute {
 
     @Override
     public List<Pair<Integer, Integer>> getRouteCheckpoints() {
-        // TODO
-//        Employee user = (Employee) UserRepository.getInstance().getUserByEmail(getEmailForRoute());
-        User user = null;
+        User user = UserAPI.getUserByEmail(getEmailForRoute());
         return RouteHelperService.computeRoute(user);
     }
 

@@ -1,10 +1,12 @@
 package markciurea.ps_server.model.dto.thrashLocationDto;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import markciurea.ps_server.model.dto.userDto.UserShort;
 import markciurea.ps_server.model.thrashLocation.ThrashLocation;
 
 @Data
+@NoArgsConstructor
 public class ThrashLocationUserShortDTO {
 
     private Long Id;

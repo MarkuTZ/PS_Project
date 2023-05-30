@@ -4,6 +4,7 @@ import markciurea.controller.activityCoordinator.ControllerActivityCoordinator;
 import markciurea.controller.helper.DrawCharts;
 import markciurea.controller.helper.ICommand;
 import markciurea.model.entities.thrashLocation.ThrashLocation;
+import markciurea.model.server.ThrashLocationAPI;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
@@ -21,9 +22,7 @@ public class GenerateChartsCommand implements ICommand {
 
     @Override
     public void execute() {
-        // TODO
-//        List<ThrashLocation> thrashLocationList = ThrashLocationRepository.getInstance().getAllThrashLocations();
-        List<ThrashLocation> thrashLocationList = null;
+        List<ThrashLocation> thrashLocationList = ThrashLocationAPI.getAllThrashLocations();
         AtomicReference<Long> sec1 = new AtomicReference<>(0L);
         AtomicReference<Long> sec2 = new AtomicReference<>(0L);
         AtomicReference<Long> sec3 = new AtomicReference<>(0L);

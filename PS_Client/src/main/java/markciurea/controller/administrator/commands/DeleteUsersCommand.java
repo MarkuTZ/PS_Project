@@ -2,7 +2,6 @@ package markciurea.controller.administrator.commands;
 
 import markciurea.controller.administrator.ControllerAdministrator;
 import markciurea.controller.helper.ICommand;
-import markciurea.model.entities.user.User;
 import markciurea.model.server.UserAPI;
 
 import java.util.ArrayList;

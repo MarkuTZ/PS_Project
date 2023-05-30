@@ -3,6 +3,7 @@ package markciurea.controller.activityCoordinator.commands;
 import markciurea.controller.activityCoordinator.ControllerActivityCoordinator;
 import markciurea.controller.helper.ICommand;
 import markciurea.model.entities.thrashLocation.ThrashLocation;
+import markciurea.model.server.ThrashLocationAPI;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -20,9 +21,8 @@ public class GenerateCSVCommand implements ICommand {
     @Override
     public void execute() {
         String csvFile = "thrashLocations.csv";
-        // TODO
-//        List<ThrashLocation> thrashLocationList = ThrashLocationRepository.getInstance().getAllThrashLocations();
-        List<ThrashLocation> thrashLocationList = null;
+
+        List<ThrashLocation> thrashLocationList = ThrashLocationAPI.getAllThrashLocations();
         try {
             BufferedWriter file = new BufferedWriter(new FileWriter((csvFile)));
             file.write("ID,ADDRESS_NAME,X,Y,EMPLOYEE_EMAIL\n");

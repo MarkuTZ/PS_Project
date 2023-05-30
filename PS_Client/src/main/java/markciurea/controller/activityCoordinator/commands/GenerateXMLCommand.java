@@ -4,7 +4,7 @@ import markciurea.controller.activityCoordinator.ControllerActivityCoordinator;
 import markciurea.controller.helper.ICommand;
 import markciurea.model.entities.dto.UserShort;
 import markciurea.model.entities.thrashLocation.ThrashLocation;
-import markciurea.model.entities.user.User;
+import markciurea.model.server.ThrashLocationAPI;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -30,10 +30,8 @@ public class GenerateXMLCommand implements ICommand {
     @Override
     public void execute() {
         String xmlFile = "thrashLocations.xml";
-        // TODO
-//        List<ThrashLocation> thrashLocationList = ThrashLocationRepository.getInstance().getAllThrashLocations();
-        List<ThrashLocation> thrashLocationList = null;
 
+        List<ThrashLocation> thrashLocationList = ThrashLocationAPI.getAllThrashLocations();
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

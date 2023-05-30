@@ -4,7 +4,7 @@ import markciurea.controller.activityCoordinator.ControllerActivityCoordinator;
 import markciurea.controller.helper.ICommand;
 import markciurea.model.entities.dto.UserShort;
 import markciurea.model.entities.thrashLocation.ThrashLocation;
-import markciurea.model.entities.user.User;
+import markciurea.model.server.ThrashLocationAPI;
 import org.json.JSONObject;
 
 import java.io.FileWriter;
@@ -24,14 +24,11 @@ public class GenerateJSONCommand implements ICommand {
     public void execute() {
         String jsonFile = "thrashLocations.json";
 
-        // TODO
-//        List<ThrashLocation> transportLineList = ThrashLocationRepository.getInstance().getAllThrashLocations();
-        List<ThrashLocation> transportLineList = null;
-
+        List<ThrashLocation> thrashLocationList = ThrashLocationAPI.getAllThrashLocations();
         try {
             JSONObject mainObj = new JSONObject();
             List<JSONObject> jsonList = new ArrayList<>();
-            for (ThrashLocation thrashLocation : transportLineList) {
+            for (ThrashLocation thrashLocation : thrashLocationList) {
                 JSONObject obj = new JSONObject();
                 // Parse simple fields
                 obj.put("id", thrashLocation.getId());

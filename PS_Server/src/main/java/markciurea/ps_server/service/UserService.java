@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import markciurea.ps_server.config.CustomError;
 import markciurea.ps_server.model.dto.userDto.UserLoginDTO;
 import markciurea.ps_server.model.dto.userDto.UserShort;
-import markciurea.ps_server.model.user.ActivityCoordinator;
-import markciurea.ps_server.model.user.Administrator;
-import markciurea.ps_server.model.user.Employee;
-import markciurea.ps_server.model.user.User;
+import markciurea.ps_server.model.user.*;
 import markciurea.ps_server.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -45,8 +42,10 @@ public class UserService {
         return repository.save(toSave);
     }
 
-    public List<User> getAllUsers() {
-        return repository.findAll();
+    public List<User> getAllUsers(List<Role> roles) {
+        if (roles == null || roles.isEmpty())
+            return repository.findAll();
+        return repository.findAllByRoleIn(roles);
     }
 
     public User deleteUserById(Long userId) {

@@ -18,7 +18,30 @@ public abstract class ThrashLocationAPI {
     private static final Gson gsonParser = new Gson();
 
     public static List<ThrashLocation> getAllThrashLocations() {
-        return null;
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme("http")
+                .host("localhost")
+                .port(8080)
+                .addPathSegment("thrash")
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+
+        try (Response response = httpClient.newCall(request).execute()) {
+            if (response.isSuccessful()) {
+                return gsonParser.fromJson(
+                        Objects.requireNonNull(response.body()).string(),
+                        TypeToken.getParameterized(List.class, ThrashLocation.class).getType()
+                );
+            } else {
+                return new ArrayList<>();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 
     public static List<ThrashLocation> getAllThrashLocationsForEmail(String email) {
@@ -49,4 +72,42 @@ public abstract class ThrashLocationAPI {
         }
     }
 
+    public static void saveThrashLocation(ThrashLocation newThrashLocation) {
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme("http")
+                .host("localhost")
+                .port(8080)
+                .addPathSegment("thrash")
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .post(RequestBody.create(JSON, gsonParser.toJson(newThrashLocation)))
+                .build();
+
+        try {
+            httpClient.newCall(request).execute();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void deleteById(Long id) {
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme("http")
+                .host("localhost")
+                .port(8080)
+                .addPathSegment("thrash")
+                .addPathSegment(String.valueOf(id))
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .delete()
+                .build();
+
+        try {
+            httpClient.newCall(request).execute();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
